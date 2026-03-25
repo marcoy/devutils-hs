@@ -1,0 +1,227 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.39.3.
+--
+-- see: https://github.com/sol/hpack
+
+name:           devutils
+version:        0.0.1.0
+synopsis:       Project template
+author:         Marco Yuen
+maintainer:     Marco Yuen
+copyright:      © 2026 Marco Yuen
+license:        GPL-3.0-or-later
+build-type:     Simple
+
+flag release
+  description: Compile executables for a release.
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      DevUtils.AppM
+      DevUtils.Cmd
+      DevUtils.Cmd.UUID
+      DevUtils.Opts
+      DevUtils.Opts.UUID
+  other-modules:
+      Paths_devutils
+  autogen-modules:
+      Paths_devutils
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      DeriveAnyClass
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      GADTs
+      LambdaCase
+      MultilineStrings
+      MultiWayIf
+      NamedWildCards
+      OverloadedLabels
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PartialTypeSignatures
+      PatternSynonyms
+      RecordWildCards
+      RequiredTypeArguments
+      TypeAbstractions
+      TypeData
+      TypeFamilies
+      ViewPatterns
+      NoFieldSelectors
+      NoStarIsType
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.18 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , exceptions
+    , extra
+    , generic-lens
+    , lens
+    , lens-aeson
+    , monad-logger
+    , monad-logger-extras
+    , mtl
+    , optparse-applicative
+    , random
+    , resourcet
+    , safe
+    , string-interpolate
+    , text
+    , text-show
+    , time
+    , transformers
+    , ulid
+    , unliftio
+    , unordered-containers
+    , uuid
+    , yaml
+  default-language: GHC2021
+
+executable devutils
+  main-is: Main.hs
+  other-modules:
+      Paths_devutils
+  autogen-modules:
+      Paths_devutils
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      DeriveAnyClass
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      GADTs
+      LambdaCase
+      MultilineStrings
+      MultiWayIf
+      NamedWildCards
+      OverloadedLabels
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PartialTypeSignatures
+      PatternSynonyms
+      RecordWildCards
+      RequiredTypeArguments
+      TypeAbstractions
+      TypeData
+      TypeFamilies
+      ViewPatterns
+      NoFieldSelectors
+      NoStarIsType
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.18 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , devutils
+    , exceptions
+    , extra
+    , generic-lens
+    , lens
+    , lens-aeson
+    , monad-logger
+    , monad-logger-extras
+    , mtl
+    , optparse-applicative
+    , random
+    , resourcet
+    , safe
+    , string-interpolate
+    , text
+    , text-show
+    , time
+    , transformers
+    , ulid
+    , unliftio
+    , unordered-containers
+    , uuid
+    , yaml
+  default-language: GHC2021
+  if flag(release)
+    ghc-options: -O2
+
+test-suite project-test
+  type: exitcode-stdio-1.0
+  main-is: Driver.hs
+  other-modules:
+      Paths_devutils
+  autogen-modules:
+      Paths_devutils
+  hs-source-dirs:
+      test
+  default-extensions:
+      DataKinds
+      DeriveAnyClass
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      GADTs
+      LambdaCase
+      MultilineStrings
+      MultiWayIf
+      NamedWildCards
+      OverloadedLabels
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PartialTypeSignatures
+      PatternSynonyms
+      RecordWildCards
+      RequiredTypeArguments
+      TypeAbstractions
+      TypeData
+      TypeFamilies
+      ViewPatterns
+      NoFieldSelectors
+      NoStarIsType
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-tool-depends:
+      tasty-discover:tasty-discover
+  build-depends:
+      aeson
+    , base >=4.18 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , devutils
+    , exceptions
+    , extra
+    , generic-lens
+    , lens
+    , lens-aeson
+    , monad-logger
+    , monad-logger-extras
+    , mtl
+    , optparse-applicative
+    , random
+    , resourcet
+    , safe
+    , string-interpolate
+    , tasty
+    , tasty-discover
+    , tasty-hspec
+    , tasty-hunit
+    , text
+    , text-show
+    , time
+    , transformers
+    , ulid
+    , unliftio
+    , unordered-containers
+    , uuid
+    , yaml
+  default-language: GHC2021

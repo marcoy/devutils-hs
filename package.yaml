@@ -1,0 +1,130 @@
+name:       devutils
+version:    0.0.1.0
+copyright:  © 2026 Marco Yuen
+author:     Marco Yuen
+license:    GPL-3.0-or-later
+language:   GHC2021
+synopsis:   Project template
+
+flags:
+  release:
+    description: Compile executables for a release.
+    default: False
+    manual: True
+
+# data-files:
+#   - data/*.*
+
+dependencies:
+  - base >= 4.18 && < 5
+  - aeson
+  - bytestring
+  - containers
+  - deepseq
+  - exceptions
+  - extra
+  - generic-lens
+  # - haskeline
+  - lens
+  - lens-aeson
+  - monad-logger
+  - monad-logger-extras
+  - mtl
+  - optparse-applicative
+  - random
+  - resourcet
+  - safe
+  # - singletons
+  # - singletons-base
+  # - singletons-th
+  # - stm
+  # - stm-chans
+  - string-interpolate
+  - text
+  - text-show
+  - time
+  - transformers
+  - ulid
+  - unliftio
+  - unordered-containers
+  - uuid
+  - yaml
+
+ghc-options:
+  # - -ddump-deriv
+  # - -ddump-splices
+  - -fdefer-typed-holes
+  - -fprint-explicit-foralls
+  - -fprint-explicit-kinds
+  - -fshow-hole-constraints
+  - -fwrite-ide-info
+  - -Wcompat
+  - -Wincomplete-patterns
+  - -Wincomplete-record-updates
+  - -Wredundant-constraints
+  # - -Wunused-packages
+
+default-extensions:
+  - DataKinds
+  - DeriveAnyClass
+  - DerivingStrategies
+  - DerivingVia
+  - DuplicateRecordFields
+  - GADTs
+  - LambdaCase
+  - MultilineStrings
+  - MultiWayIf
+  - NamedWildCards
+  - OverloadedLabels
+  - OverloadedLists
+  - OverloadedRecordDot
+  - OverloadedStrings
+  - PartialTypeSignatures
+  - PatternSynonyms
+  - RecordWildCards
+  - RequiredTypeArguments
+  - TypeAbstractions
+  - TypeData
+  - TypeFamilies
+  - ViewPatterns
+  - NoFieldSelectors
+  - NoStarIsType
+
+library:
+  source-dirs: src
+
+# internal-libraries:
+#   lib1:
+#     source-dirs: lib1/src
+
+executables:
+  devutils:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - devutils
+    when:
+      - condition: flag(release)
+        ghc-options:
+          - -O2
+
+tests:
+  project-test:
+    main: Driver.hs
+    source-dirs: test
+    build-tools:
+      - tasty-discover:tasty-discover
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - tasty
+      - tasty-discover
+      - tasty-hunit
+      - tasty-hspec
+      - devutils

@@ -1,0 +1,28 @@
+jobs: $ncpus
+verbose: 3
+
+import: ./stackage-nightly-2026-03-24.config
+
+packages: *.cabal
+
+allow-newer: all
+
+-- https://well-typed.com/blog/2023/03/cabal-multi-unit/
+multi-repl: True
+tests: True
+benchmarks: True
+run-tests: True
+
+if os(darwin)
+  if arch(aarch64)
+    package *
+      extra-include-dirs:
+          /opt/homebrew/include
+      extra-lib-dirs:
+          /opt/homebrew/lib
+  else
+    package *
+      extra-include-dirs:
+          /opt/local/include
+      extra-lib-dirs:
+          /opt/local/lib
