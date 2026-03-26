@@ -22,8 +22,10 @@ library
   exposed-modules:
       DevUtils.AppM
       DevUtils.Cmd
+      DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
       DevUtils.Opts
+      DevUtils.Opts.ULID
       DevUtils.Opts.UUID
   other-modules:
       Paths_devutils

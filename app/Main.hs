@@ -15,5 +15,5 @@ main = do
   args <- execArgsParser
 
   case args.cmd of
-    (UUID opts) -> runDevUApp $ generateUUID opts
-    ULID        -> error "Not Implemented"
+    UUID opts -> runDevUApp $ generateUUID opts
+    ULID opts -> runDevUApp $ generateULID opts

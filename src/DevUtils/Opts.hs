@@ -7,6 +7,7 @@ module DevUtils.Opts
   ) where
 
 
+import           DevUtils.Opts.ULID  as Os
 import           DevUtils.Opts.UUID  as Os
 import           GHC.Generics        (Generic)
 import           Options.Applicative
@@ -19,7 +20,7 @@ newtype DevUOptions = DevUOptions { cmd :: DevUCommands }
                       deriving TextShow via FromGeneric DevUOptions
 
 data DevUCommands = UUID UUIDOptions
-                  | ULID
+                  | ULID ULIDOptions
                   deriving stock (Show, Eq, Generic)
                   deriving TextShow via FromGeneric DevUCommands
 
@@ -30,7 +31,7 @@ devUOpts = DevUOptions <$>
     ( command "uuid"
         (info (UUID <$> uuidOpts <**> helper) (progDesc "Generate UUID"))
    <> command "ulid"
-        (info (pure ULID <**> helper) (progDesc "Generate ULID"))
+        (info (ULID <$> ulidOpts <**> helper) (progDesc "Generate ULID"))
    <> metavar "<SUB_COMMAND>"
     )
 
