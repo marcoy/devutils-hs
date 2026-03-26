@@ -63,6 +63,8 @@ library
       aeson
     , base >=4.18 && <5
     , bytestring
+    , conduit
+    , conduit-extra
     , containers
     , deepseq
     , exceptions
@@ -127,6 +129,8 @@ executable devutils
       aeson
     , base >=4.18 && <5
     , bytestring
+    , conduit
+    , conduit-extra
     , containers
     , deepseq
     , devutils
@@ -197,6 +201,8 @@ test-suite project-test
       aeson
     , base >=4.18 && <5
     , bytestring
+    , conduit
+    , conduit-extra
     , containers
     , deepseq
     , devutils
