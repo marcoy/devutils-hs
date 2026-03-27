@@ -23,6 +23,7 @@ library
       DevUtils.AppM
       DevUtils.Cmd
       DevUtils.Cmd.Base64
+      DevUtils.Cmd.Internal.Conduit.Base64
       DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
       DevUtils.Opts
