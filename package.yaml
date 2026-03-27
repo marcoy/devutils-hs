@@ -18,13 +18,16 @@ flags:
 dependencies:
   - base >= 4.18 && < 5
   - aeson
+  - base64
   - bytestring
   - conduit
   - conduit-extra
   - containers
   - deepseq
+  - directory
   - exceptions
   - extra
+  - filepath
   - generic-lens
   # - haskeline
   - lens

@@ -7,12 +7,13 @@ module DevUtils.Opts
   ) where
 
 
-import           DevUtils.Opts.ULID  as Os
-import           DevUtils.Opts.UUID  as Os
-import           GHC.Generics        (Generic)
+import           DevUtils.Opts.Base64 as Os
+import           DevUtils.Opts.ULID   as Os
+import           DevUtils.Opts.UUID   as Os
+import           GHC.Generics         (Generic)
 import           Options.Applicative
-import           TextShow            (TextShow)
-import           TextShow.Generic    (FromGeneric (..))
+import           TextShow             (TextShow)
+import           TextShow.Generic     (FromGeneric (..))
 
 
 newtype DevUOptions = DevUOptions { cmd :: DevUCommands }
@@ -21,6 +22,7 @@ newtype DevUOptions = DevUOptions { cmd :: DevUCommands }
 
 data DevUCommands = UUID UUIDOptions
                   | ULID ULIDOptions
+                  | Base64 Base64Options
                   deriving stock (Show, Eq, Generic)
                   deriving TextShow via FromGeneric DevUCommands
 
@@ -32,6 +34,8 @@ devUOpts = DevUOptions <$>
         (info (UUID <$> uuidOpts <**> helper) (progDesc "Generate UUID"))
    <> command "ulid"
         (info (ULID <$> ulidOpts <**> helper) (progDesc "Generate ULID"))
+   <> command "b64"
+        (info (Base64 <$> base64Opts <**> helper) (progDesc "Base64 encode/decode"))
    <> metavar "<SUB_COMMAND>"
     )
 

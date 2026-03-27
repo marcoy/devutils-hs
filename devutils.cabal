@@ -22,9 +22,11 @@ library
   exposed-modules:
       DevUtils.AppM
       DevUtils.Cmd
+      DevUtils.Cmd.Base64
       DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
       DevUtils.Opts
+      DevUtils.Opts.Base64
       DevUtils.Opts.ULID
       DevUtils.Opts.UUID
   other-modules:
@@ -62,13 +64,16 @@ library
   build-depends:
       aeson
     , base >=4.18 && <5
+    , base64
     , bytestring
     , conduit
     , conduit-extra
     , containers
     , deepseq
+    , directory
     , exceptions
     , extra
+    , filepath
     , generic-lens
     , lens
     , lens-aeson
@@ -128,14 +133,17 @@ executable devutils
   build-depends:
       aeson
     , base >=4.18 && <5
+    , base64
     , bytestring
     , conduit
     , conduit-extra
     , containers
     , deepseq
     , devutils
+    , directory
     , exceptions
     , extra
+    , filepath
     , generic-lens
     , lens
     , lens-aeson
@@ -200,14 +208,17 @@ test-suite project-test
   build-depends:
       aeson
     , base >=4.18 && <5
+    , base64
     , bytestring
     , conduit
     , conduit-extra
     , containers
     , deepseq
     , devutils
+    , directory
     , exceptions
     , extra
+    , filepath
     , generic-lens
     , lens
     , lens-aeson

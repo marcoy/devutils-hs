@@ -15,5 +15,6 @@ main = do
   args <- execArgsParser
 
   case args.cmd of
-    UUID opts -> runDevUApp $ generateUUID opts
-    ULID opts -> runDevUApp $ generateULID opts
+    UUID opts   -> runDevUApp $ generateUUID opts
+    ULID opts   -> runDevUApp $ generateULID opts
+    Base64 opts -> runDevUApp $ base64Handler opts
