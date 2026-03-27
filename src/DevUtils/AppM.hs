@@ -6,27 +6,34 @@ module DevUtils.AppM (
 ) where
 
 
-import           Control.Monad.Catch    (MonadCatch, MonadMask, MonadThrow)
-import           Control.Monad.IO.Class (MonadIO)
-import           Control.Monad.Trans    (MonadTrans)
-import           GHC.Generics           (Generic)
-import           UnliftIO               (MonadUnliftIO)
+import           Control.Monad.Catch          (MonadCatch, MonadMask,
+                                               MonadThrow)
+import           Control.Monad.IO.Class       (MonadIO)
+import           Control.Monad.Trans          (MonadTrans (lift))
+import           Control.Monad.Trans.Resource (MonadResource, ResourceT,
+                                               runResourceT)
+import           GHC.Generics                 (Generic)
+import           UnliftIO                     (MonadUnliftIO)
 
 
-newtype DevUAppT m a = DevUAppT { app :: m a }
+newtype DevUAppT m a = DevUAppT { app :: ResourceT m a }
                        deriving stock (Generic)
                        deriving newtype (
                            Functor
                          , Applicative
                          , Monad
-                         , MonadThrow
                          , MonadCatch
-                         , MonadMask
                          , MonadIO
+                         , MonadMask
+                         , MonadResource
+                         , MonadThrow
                          , MonadUnliftIO
                          )
+
+instance MonadTrans DevUAppT where
+  lift = DevUAppT . lift
 
 type DevUApp = DevUAppT IO
 
 runDevUApp :: DevUApp a -> IO a
-runDevUApp devutils = devutils.app
+runDevUApp devutils = runResourceT devutils.app
