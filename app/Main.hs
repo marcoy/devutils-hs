@@ -18,3 +18,4 @@ main = do
     UUID opts   -> runDevUApp $ generateUUID opts
     ULID opts   -> runDevUApp $ generateULID opts
     Base64 opts -> runDevUApp $ base64Handler opts
+    Gzip opts   -> runDevUApp $ gzipHandler opts

@@ -1,3 +1,4 @@
+{-# LANGUAGE UndecidableInstances #-}
 module DevUtils.AppM (
   DevUAppT (..)
 , DevUApp
@@ -6,6 +7,7 @@ module DevUtils.AppM (
 ) where
 
 
+import           Conduit                      (PrimMonad)
 import           Control.Monad.Catch          (MonadCatch, MonadMask,
                                                MonadThrow)
 import           Control.Monad.IO.Class       (MonadIO)
@@ -28,6 +30,7 @@ newtype DevUAppT m a = DevUAppT { app :: ResourceT m a }
                          , MonadResource
                          , MonadThrow
                          , MonadUnliftIO
+                         , PrimMonad
                          )
 
 instance MonadTrans DevUAppT where

@@ -23,11 +23,14 @@ library
       DevUtils.AppM
       DevUtils.Cmd
       DevUtils.Cmd.Base64
+      DevUtils.Cmd.Gzip
       DevUtils.Cmd.Internal.Conduit.Base64
+      DevUtils.Cmd.Internal.Conduit.IO
       DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
       DevUtils.Opts
       DevUtils.Opts.Base64
+      DevUtils.Opts.Gzip
       DevUtils.Opts.ULID
       DevUtils.Opts.UUID
   other-modules:

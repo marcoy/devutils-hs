@@ -8,8 +8,10 @@ module DevUtils.Opts
 
 
 import           DevUtils.Opts.Base64 as Os
+import           DevUtils.Opts.Gzip   as Os
 import           DevUtils.Opts.ULID   as Os
 import           DevUtils.Opts.UUID   as Os
+
 import           GHC.Generics         (Generic)
 import           Options.Applicative
 import           TextShow             (TextShow)
@@ -23,6 +25,7 @@ newtype DevUOptions = DevUOptions { cmd :: DevUCommands }
 data DevUCommands = UUID UUIDOptions
                   | ULID ULIDOptions
                   | Base64 Base64Options
+                  | Gzip GzipOptions
                   deriving stock (Show, Eq, Generic)
                   deriving TextShow via FromGeneric DevUCommands
 
@@ -36,6 +39,8 @@ devUOpts = DevUOptions <$>
         (info (ULID <$> ulidOpts <**> helper) (progDesc "Generate ULID"))
    <> command "b64"
         (info (Base64 <$> base64Opts <**> helper) (progDesc "Base64 encode/decode"))
+   <> command "gzip"
+        (info (Gzip <$> gzipOpts <**> helper) (progDesc "Gzip compress/decompress"))
    <> metavar "<SUB_COMMAND>"
     )
 

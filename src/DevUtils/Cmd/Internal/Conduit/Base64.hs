@@ -21,7 +21,7 @@ newtype MalformedBase64 = MalformedBase64 Text
                           deriving (Show, Typeable)
                           deriving anyclass (Exception)
 
-b64EncodeC :: (Monad m) => ConduitM ByteString ByteString m ()
+b64EncodeC :: (Monad m) => ConduitT ByteString ByteString m ()
 b64EncodeC = go BS.empty
   where
     go !acc = do
@@ -37,7 +37,7 @@ b64EncodeC = go BS.empty
             yield (B64.extractBase64 $ B64.encodeBase64' toEncode)
           go rest
 
-b64DecodeC :: (MonadThrow m) => ConduitM ByteString ByteString m ()
+b64DecodeC :: (MonadThrow m) => ConduitT ByteString ByteString m ()
 b64DecodeC = go BS.empty
   where
     go !acc = do
