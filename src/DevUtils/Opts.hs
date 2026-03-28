@@ -35,8 +35,10 @@ data DevUCommands = UUID UUIDOptions
 
 
 devUOpts :: Parser DevUOptions
-devUOpts = DevUOptions <$>
-  subparser
+devUOpts = DevUOptions <$> cmd
+
+cmd :: Parser DevUCommands
+cmd = subparser
     ( command "uuid"
         (info (UUID <$> uuidOpts <**> helper) (progDesc "Generate UUID"))
    <> command "ulid"

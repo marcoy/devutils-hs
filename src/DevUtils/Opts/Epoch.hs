@@ -23,5 +23,6 @@ data EpochOptions = EpochOptions
 
 epochOpts :: Parser EpochOptions
 epochOpts = EpochOptions
-  <$> optional (option epochUnitReadM (long "unit" <> short 'u' <> metavar "<EPOCH_UNIT>" <> help "Epoch timestamp unit (seconds or millis)"))
+  <$> optional (option epochUnitReadM
+                       (long "unit" <> short 'u' <> metavar "<EPOCH_UNIT>" <> completeWith ["seconds", "millis"] <> help "Epoch timestamp unit (seconds or millis)"))
   <*> optional (argument auto (metavar "<EPOCH_TIMESTAMP>" <> help "A timestamp"))
