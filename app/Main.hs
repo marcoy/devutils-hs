@@ -19,3 +19,4 @@ main = do
     ULID opts   -> runDevUApp $ generateULID opts
     Base64 opts -> runDevUApp $ base64Handler opts
     Gzip opts   -> runDevUApp $ gzipHandler opts
+    Epoch opts  -> runDevUApp $ epochHandler opts

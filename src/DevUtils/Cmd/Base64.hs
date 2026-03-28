@@ -3,8 +3,7 @@ module DevUtils.Cmd.Base64
   ) where
 
 
-import           Conduit                              (decodeUtf8C, mapMC,
-                                                       runConduit, sinkNull,
+import           Conduit                              (runConduit, stdoutC,
                                                        (.|))
 import           Control.Monad.Catch                  (MonadThrow)
 import           Control.Monad.IO.Class               (MonadIO (liftIO))
@@ -22,6 +21,4 @@ base64Handler opts = do
       op     = if opts.decodeMode then b64DecodeC else b64EncodeC
   runConduit $ source
             .| op
-            .| decodeUtf8C
-            .| mapMC (liftIO . TIO.putStr)
-            .| sinkNull
+            .| stdoutC

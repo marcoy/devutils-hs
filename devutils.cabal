@@ -6,7 +6,7 @@ cabal-version: 2.2
 
 name:           devutils
 version:        0.0.1.0
-synopsis:       Project template
+synopsis:       Dev utils
 author:         Marco Yuen
 maintainer:     Marco Yuen
 copyright:      © 2026 Marco Yuen
@@ -23,13 +23,16 @@ library
       DevUtils.AppM
       DevUtils.Cmd
       DevUtils.Cmd.Base64
+      DevUtils.Cmd.Epoch
       DevUtils.Cmd.Gzip
       DevUtils.Cmd.Internal.Conduit.Base64
       DevUtils.Cmd.Internal.Conduit.IO
       DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
+      DevUtils.Data.Epoch.EpochUnit
       DevUtils.Opts
       DevUtils.Opts.Base64
+      DevUtils.Opts.Epoch
       DevUtils.Opts.Gzip
       DevUtils.Opts.ULID
       DevUtils.Opts.UUID

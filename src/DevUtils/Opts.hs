@@ -8,6 +8,7 @@ module DevUtils.Opts
 
 
 import           DevUtils.Opts.Base64 as Os
+import           DevUtils.Opts.Epoch  as Os
 import           DevUtils.Opts.Gzip   as Os
 import           DevUtils.Opts.ULID   as Os
 import           DevUtils.Opts.UUID   as Os
@@ -26,6 +27,7 @@ data DevUCommands = UUID UUIDOptions
                   | ULID ULIDOptions
                   | Base64 Base64Options
                   | Gzip GzipOptions
+                  | Epoch EpochOptions
                   deriving stock (Show, Eq, Generic)
                   deriving TextShow via FromGeneric DevUCommands
 
@@ -41,6 +43,8 @@ devUOpts = DevUOptions <$>
         (info (Base64 <$> base64Opts <**> helper) (progDesc "Base64 encode/decode"))
    <> command "gzip"
         (info (Gzip <$> gzipOpts <**> helper) (progDesc "Gzip compress/decompress"))
+   <> command "epoch"
+        (info (Epoch <$> epochOpts <**> helper) (progDesc "Epoch timestamp related"))
    <> metavar "<SUB_COMMAND>"
     )
 

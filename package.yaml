@@ -4,7 +4,7 @@ copyright:  © 2026 Marco Yuen
 author:     Marco Yuen
 license:    GPL-3.0-or-later
 language:   GHC2021
-synopsis:   Project template
+synopsis:   Dev utils
 
 flags:
   release:
