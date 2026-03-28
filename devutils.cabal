@@ -11,6 +11,7 @@ author:         Marco Yuen
 maintainer:     Marco Yuen
 copyright:      © 2026 Marco Yuen
 license:        GPL-3.0-or-later
+license-file:   LICENSE
 build-type:     Simple
 
 flag release
