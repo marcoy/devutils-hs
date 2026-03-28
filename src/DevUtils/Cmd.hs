@@ -8,3 +8,4 @@ import           DevUtils.Cmd.Epoch  as C
 import           DevUtils.Cmd.Gzip   as C
 import           DevUtils.Cmd.ULID   as C
 import           DevUtils.Cmd.UUID   as C
+import           DevUtils.Cmd.Xml    as C

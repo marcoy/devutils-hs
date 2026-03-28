@@ -29,6 +29,7 @@ library
       DevUtils.Cmd.Internal.Conduit.IO
       DevUtils.Cmd.ULID
       DevUtils.Cmd.UUID
+      DevUtils.Cmd.Xml
       DevUtils.Data.Epoch.EpochUnit
       DevUtils.Opts
       DevUtils.Opts.Base64
@@ -36,6 +37,7 @@ library
       DevUtils.Opts.Gzip
       DevUtils.Opts.ULID
       DevUtils.Opts.UUID
+      DevUtils.Opts.Xml
   other-modules:
       Paths_devutils
   autogen-modules:
@@ -87,6 +89,7 @@ library
     , monad-logger
     , monad-logger-extras
     , mtl
+    , network-uri
     , optparse-applicative
     , random
     , resourcet
@@ -100,6 +103,8 @@ library
     , unliftio
     , unordered-containers
     , uuid
+    , xml-conduit
+    , xml-lens
     , yaml
   default-language: GHC2021
 
@@ -157,6 +162,7 @@ executable devutils
     , monad-logger
     , monad-logger-extras
     , mtl
+    , network-uri
     , optparse-applicative
     , random
     , resourcet
@@ -170,6 +176,8 @@ executable devutils
     , unliftio
     , unordered-containers
     , uuid
+    , xml-conduit
+    , xml-lens
     , yaml
   default-language: GHC2021
   if flag(release)
@@ -232,6 +240,7 @@ test-suite project-test
     , monad-logger
     , monad-logger-extras
     , mtl
+    , network-uri
     , optparse-applicative
     , random
     , resourcet
@@ -249,5 +258,7 @@ test-suite project-test
     , unliftio
     , unordered-containers
     , uuid
+    , xml-conduit
+    , xml-lens
     , yaml
   default-language: GHC2021

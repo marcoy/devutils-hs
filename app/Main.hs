@@ -7,7 +7,6 @@ import           DevUtils.Opts   (DevUCommands (..), DevUOptions (..),
                                   UUIDOptions (..), execArgsParser)
 import           System.IO.Extra (BufferMode (NoBuffering), hSetBuffering,
                                   stdout)
-import           TextShow        (TextShow (showt))
 
 main :: IO ()
 main = do
@@ -20,3 +19,4 @@ main = do
     Base64 opts -> runDevUApp $ base64Handler opts
     Gzip opts   -> runDevUApp $ gzipHandler opts
     Epoch opts  -> runDevUApp $ epochHandler opts
+    Xml opts    -> runDevUApp $ xmlHandler opts

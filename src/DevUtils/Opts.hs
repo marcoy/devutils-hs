@@ -12,6 +12,7 @@ import           DevUtils.Opts.Epoch  as Os
 import           DevUtils.Opts.Gzip   as Os
 import           DevUtils.Opts.ULID   as Os
 import           DevUtils.Opts.UUID   as Os
+import           DevUtils.Opts.Xml    as Os
 
 import           GHC.Generics         (Generic)
 import           Options.Applicative
@@ -28,6 +29,7 @@ data DevUCommands = UUID UUIDOptions
                   | Base64 Base64Options
                   | Gzip GzipOptions
                   | Epoch EpochOptions
+                  | Xml XmlOptions
                   deriving stock (Show, Eq, Generic)
                   deriving TextShow via FromGeneric DevUCommands
 
@@ -45,6 +47,8 @@ devUOpts = DevUOptions <$>
         (info (Gzip <$> gzipOpts <**> helper) (progDesc "Gzip compress/decompress"))
    <> command "epoch"
         (info (Epoch <$> epochOpts <**> helper) (progDesc "Epoch timestamp related"))
+   <> command "xml"
+        (info (Xml <$> xmlOpts <**> helper) (progDesc "Unescape XML"))
    <> metavar "<SUB_COMMAND>"
     )
 
