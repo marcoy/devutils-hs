@@ -104,6 +104,7 @@ library
     , unliftio
     , unordered-containers
     , uuid
+    , vector
     , xml-conduit
     , xml-lens
     , yaml
@@ -177,6 +178,7 @@ executable devutils
     , unliftio
     , unordered-containers
     , uuid
+    , vector
     , xml-conduit
     , xml-lens
     , yaml
@@ -259,6 +261,7 @@ test-suite project-test
     , unliftio
     , unordered-containers
     , uuid
+    , vector
     , xml-conduit
     , xml-lens
     , yaml

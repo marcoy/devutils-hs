@@ -18,7 +18,7 @@ import           DevUtils.Opts                        (Base64Options (..))
 base64Handler :: forall m. (MonadResource m, MonadThrow m) => Base64Options -> m ()
 base64Handler opts = do
   let source = fpInputSource opts.inputFp
-      op     = if opts.decodeMode then b64DecodeC else b64EncodeC
+      opC    = if opts.decodeMode then b64DecodeC else b64EncodeC
   runConduit $ source
-            .| op
+            .| opC
             .| stdoutC

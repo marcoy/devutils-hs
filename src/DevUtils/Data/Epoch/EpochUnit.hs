@@ -22,5 +22,5 @@ data EpochUnit = EpochSeconds
 epochUnitReadM :: ReadM EpochUnit
 epochUnitReadM = eitherReader $ \case
   "seconds" -> Right EpochSeconds
-  "millis" -> Right EpochMillis
-  other -> Left [i|Unknown epoch unit #{other}. Use either "seconds" or "millis"|]
+  "millis"  -> Right EpochMillis
+  other     -> Left [i|Unknown epoch unit #{other}. Use either "seconds" or "millis"|]

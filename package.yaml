@@ -55,6 +55,7 @@ dependencies:
   - unliftio
   - unordered-containers
   - uuid
+  - vector
   - xml-conduit
   - xml-lens
   - yaml
