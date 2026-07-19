@@ -1,6 +1,6 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.39.3.
+-- This file has been generated from package.yaml by hpack version 0.39.6.
 --
 -- see: https://github.com/sol/hpack
 
@@ -70,7 +70,7 @@ library
       ViewPatterns
       NoFieldSelectors
       NoStarIsType
-  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -fplugin=Effectful.Plugin
   build-depends:
       aeson
     , base >=4.18 && <5
@@ -81,6 +81,10 @@ library
     , containers
     , deepseq
     , directory
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
     , exceptions
     , extra
     , filepath
@@ -143,7 +147,7 @@ executable devutils
       ViewPatterns
       NoFieldSelectors
       NoStarIsType
-  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -fplugin=Effectful.Plugin -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , base >=4.18 && <5
@@ -155,6 +159,10 @@ executable devutils
     , deepseq
     , devutils
     , directory
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
     , exceptions
     , extra
     , filepath
@@ -220,7 +228,7 @@ test-suite project-test
       ViewPatterns
       NoFieldSelectors
       NoStarIsType
-  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -fdefer-typed-holes -fprint-explicit-foralls -fprint-explicit-kinds -fshow-hole-constraints -fwrite-ide-info -Wcompat -Wincomplete-patterns -Wincomplete-record-updates -Wredundant-constraints -fplugin=Effectful.Plugin -threaded -rtsopts -with-rtsopts=-N
   build-tool-depends:
       tasty-discover:tasty-discover
   build-depends:
@@ -234,6 +242,10 @@ test-suite project-test
     , deepseq
     , devutils
     , directory
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
     , exceptions
     , extra
     , filepath
